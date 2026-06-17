@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clarilux Chatbox</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box">
+            <div class="chat-header">
+                <h1>Clarilux Chatbox</h1>
+                <p>Powered by Gemini 3 Flash Preview</p>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <p>Hello! I'm Clarilux Chatbox. How can I help you today?</p>
+                </div>
+            </div>
+            
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        id="userInput" 
+                        placeholder="Type your message..." 
+                        class="chat-input"
+                        autocomplete="off"
+                    >
+                    <button id="sendBtn" class="send-btn">Send</button>
+                </div>
+                <button id="resetBtn" class="reset-btn">Reset Chat</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>

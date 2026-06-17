@@ -1,0 +1,105 @@
+Clarilux User Guide – Oral Board Exam Simulation
+Phase 1: Account Creation and Onboarding
+Step 1: Access the Platform
+Open your preferred web browser and navigate to the application by typing
+dev.clarilux.ai into the address bar. Press Enter to reach the landing page.
+
+Step 2: Initiate Sign-Up
+• As a new user, click the “Sign Up” button located at the top-right corner of the
+page.
+• If you are an existing user, please proceed to Log In. If you have forgotten your
+password, click the “Forgot Password” link to reset it. Enter your email address
+and submit the request. An email will be sent to you with instructions to create a
+new password. Once your password has been successfully reset, proceed to log in
+using your email address and new password.
+
+Step 3: Choose Sign-Up Method
+• You will be presented with options to sign up as a candidate, examiner, or
+institution which would be candidate by default.
+• Choose your preferred sign-up method: Google, Microsoft, or Email.
+
+Step 4: Fill Out Account Details
+• Complete the required fields, including your first name, last name, email address,
+password, and confirm password.
+• Check the box to agree to the Terms of Use, then click Create Account.
+
+Step 5: Verify Your Email
+• You will be redirected to a page confirming your account has been created and
+prompting you to check your email.
+• Log into your personal email account, locate the verification email, and click Verify
+Email.
+
+Step 6: Sign In
+• After verification, you will be redirected to a page stating "Account has been
+activated successfully" then click Sign In.
+• Enter the email address and password you just created to log in.
+
+Step 7: Complete Your Profile
+• You will be prompted to provide more details about your role (e.g., Resident, Fellow,
+Physician)
+
+Step 8: Set Exam Timeline
+• When asked "Have you taken this exam before?", select Yes or No.
+• Input your anticipated exam date and click Submit.
+
+Phase 2: Subscription and Starting the Session
+Step 9: Navigate to Dashboard & Subscribe
+• Click start preparing. You would be redirected to your dashboard
+• To access the oral board sessions, you need an active monthly subscription
+• Click on your profile at the top right corner, then select Billing and Subscription
+
+Step 10: Plan Purchase
+• Click “Select Plan” and select the Premium Plan.
+• You will be redirected to a payment page.
+• Enter these test card details
+Card no: 4242 4242 4242 4242
+MM/YY: 12/28
+CVC: 234
+then click Subscribe.
+• Once active, you will receive an email from Clarilux.
+
+Step 11: Access Oral Board Sessions
+• On the left-side menu (which includes Dashboard, Oral Board, Question Bank,
+Marketplace, and Analytics), click on Oral Board.
+• Choose a subject from the available options. E.g, Endocrine.
+
+Step 12: Review Session Summary
+• The screen will display a summary of the session, indicating it includes 2 cases, a
+10-minute study period before each case, 35 minutes of case time, and 2 grab bags.
+• Click Begin Session.
+
+Step 13: Configure Session Experience
+• While the first case is preparing, choose your experience: Avatar, Voice, or Text.
+• Select your experience method and click Continue.
+
+Step 14: Study Period & Session Start
+• The case scenario will be displayed. You have a 10-minute review time to read the
+question, draft your answers, and perform any necessary calculations.
+• You can either wait for the 10 minutes to elapse (the session will start
+automatically), or you can click Begin Early to jump straight into the active session.
+
+Step 15: The First Case (Long Form or Short Form)
+
+• The first session begins and the will last for exactly 35 minutes. This first case will
+either be a long-form or short-form scenario.
+• Once the 35 minutes elapses, you will be presented with a choice:
+o Click Continue Later to pause the exam and immediately view your score for
+this first case.
+o Keep Going: Proceed directly to the second case without viewing your score
+yet.
+
+Step 16: Completing the Exam & Final Score
+• If you choose to proceed to the next case, you will begin the second 35-minute
+case.
+• At the end of the full 70-minute exam time (35 minutes for the first case + 35
+minutes for the second case), the session will conclude entirely.
+• You will then be presented with your comprehensive score for both the long-form
+and short-form cases.
+• You can expand or collapse each session score accordingly.
+• You can also view transcript of the entire session
+
+Step 17: What’s Next
+After viewing your score and transcript, you can choose to either return to the dashboard or
+start a new simulation by clicking “Go to Dashboard” or “New Exam” accordingly.
+• Go to Dashboard: Takes you back to the dashboard overview.
+• New Exam: Takes you to the interface where you can select a topic and begin a new
