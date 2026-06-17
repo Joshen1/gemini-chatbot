@@ -1,0 +1,19 @@
+1. Save the file in VS Code (Ctrl+S)
+This only saves the file on your computer.
+Nothing is sent to GitHub yet.
+
+2. Commit the changes
+
+git add .
+git commit -m "Updated feature X"
+This saves the changes in your local Git repository.
+Still only on your computer.
+
+3. Push the changes
+
+git push
+This uploads the commits to the GitHub repository.
+
+You can verify where pushes go by running:
+
+git remote -v
