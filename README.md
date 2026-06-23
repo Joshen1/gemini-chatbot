@@ -15,7 +15,7 @@ A modern web-based chatbot powered by Google's Gemini 3 Flash Preview model, bui
 
 1. **Clone the repository**
    ```bash
-   cd gemini-chatbot
+   cd chatbot_joshen
    ```
 
 2. **Create a virtual environment**
@@ -63,14 +63,14 @@ If you changed the `PORT` environment variable, use that port instead.
 
 Build the Docker image:
 ```bash
-docker build -t gemini-chatbot .
+docker build -t chatbot_joshen .
 ```
 
 Run the container:
 ```bash
-docker run -d --name gemini-chatbot -p 8000:8000 \
+docker run -d --name chatbot_joshen -p 8000:8000 \
   -e GEMINI_API_KEY=your_api_key_here \
-  gemini-chatbot
+  chatbot_joshen
 ```
 
 Then open:
@@ -80,9 +80,9 @@ http://localhost:8000
 
 If you want to mount a local `.env` file instead of passing the key directly:
 ```bash
-docker run -d --name gemini-chatbot -p 8000:8000 \
+docker run -d --name chatbot_joshen -p 8000:8000 \
   --env-file .env \
-  gemini-chatbot
+  chatbot_joshen
 ```
 
 ### CLI Mode (Legacy)
@@ -104,7 +104,7 @@ python chatbot.py --cli
 ## Project Structure
 
 ```
-gemini-chatbot/
+chatbot_joshen/
 ├── chatbot.py           # Main FastAPI application
 ├── requirements.txt     # Python dependencies
 ├── .env                 # Environment variables (create this)
