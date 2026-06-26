@@ -2,4 +2,3 @@ google-genai
 python-dotenv
 fastapi
 uvicorn[standard]
-PyPDF2
