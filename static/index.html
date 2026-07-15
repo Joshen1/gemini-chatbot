@@ -10,8 +10,12 @@
     <div class="container">
         <div class="chat-box">
             <div class="chat-header">
-                <h1>Clarilux Chatbox</h1>
-                <p>Powered by Gemini 3 Flash Preview</p>
+                <div class="header-copy">
+                    <span class="header-pill">✦ Premium assistant</span>
+                    <h1>Clarilux Chatbox</h1>
+                    <p>Ask about steps, screenshots, and next actions with your assistant.</p>
+                </div>
+                <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle theme">☾</button>
             </div>
             
             <div class="chat-messages" id="chatMessages">
@@ -34,6 +38,12 @@
                 <button id="resetBtn" class="reset-btn">Reset Chat</button>
             </div>
         </div>
+    </div>
+
+    <!-- Professional Expand-on-Click Overlay Modal -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+        <!-- Removed empty src and text to prevent broken text leak on load -->
+        <img id="lightboxImg" alt="Screenshot preview">
     </div>
     
     <script src="/static/script.js"></script>

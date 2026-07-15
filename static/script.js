@@ -3,10 +3,40 @@ const userInput = document.getElementById('userInput');
 const sendBtn = document.getElementById('sendBtn');
 const resetBtn = document.getElementById('resetBtn');
 const chatMessages = document.getElementById('chatMessages');
+const themeToggle = document.getElementById('themeToggle');
+
+// Dynamic Lightbox Elements (Resolves zoom overlay)
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+
+// Theme handling
+const storedTheme = localStorage.getItem('clarilux-theme');
+const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+if (storedTheme === 'light' || (!storedTheme && prefersLight)) {
+    document.body.classList.add('theme-light');
+    themeToggle.textContent = '☀︎';
+} else {
+    themeToggle.textContent = '☾';
+}
+
+themeToggle.addEventListener('click', () => {
+    const isLight = document.body.classList.toggle('theme-light');
+    localStorage.setItem('clarilux-theme', isLight ? 'light' : 'dark');
+    themeToggle.textContent = isLight ? '☀︎' : '☾';
+});
 
 // Event listeners
+let autoScroll = true;
+
+// Track user scroll: if the user scrolls away from the bottom, stop auto-scrolling
+chatMessages.addEventListener('scroll', () => {
+    const atBottom = (chatMessages.scrollHeight - chatMessages.scrollTop) <= (chatMessages.clientHeight + 8);
+    autoScroll = atBottom;
+});
+
 sendBtn.addEventListener('click', sendMessage);
-userInput.addEventListener('keypress', (e) => {
+userInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && !e.shiftKey) {
         e.preventDefault();
         sendMessage();
@@ -33,30 +63,52 @@ async function sendMessage() {
     resetBtn.disabled = true;
     
     // Show loading indicator
-    const loadingDiv = addMessage('Thinking...', 'bot-loading');
+    const loadingDiv = addMessage('Thinking', 'bot-loading');
     
     try {
-        // Send message to backend
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ message: message })
-        });
+        let response;
+        let retries = 3;
+        let delay = 2000; // Start with a 2-second delay if rate limited
+
+        // Keep attempting the request if we hit a rate limit (429)
+        while (retries > 0) {
+            response = await fetch('/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: message })
+            });
+
+            // If we hit a 429 Rate Limit error, pause and retry
+            if (response.status === 429) {
+                retries--;
+                console.warn(`Rate limited by API. Retrying in ${delay / 1000}s... (${retries} retries left)`);
+                await new Promise(resolve => setTimeout(resolve, delay));
+                delay *= 1.5; // Exponential backoff
+                continue;
+            }
+
+            break;
+        }
         
         // Remove loading message
         loadingDiv.remove();
         
         if (response.ok) {
             const data = await response.json();
-            addMessage(data.response, 'bot');
+            // Pass BOTH the text response and the extracted images list to addMessage
+            addMessage(data.response, 'bot', data.images);
         } else {
             const errorData = await response.json();
-            addMessage(`Error: ${errorData.detail}`, 'error');
+            if (response.status === 429) {
+                addMessage("Groq is currently rate-limiting requests. Please wait a moment before trying again.", 'error');
+            } else {
+                addMessage(`Error: ${errorData.detail || 'Something went wrong.'}`, 'error');
+            }
         }
     } catch (error) {
-        loadingDiv.remove();
+        if (loadingDiv) loadingDiv.remove();
         addMessage(`Error: ${error.message}`, 'error');
         console.error('Error:', error);
     } finally {
@@ -69,8 +121,8 @@ async function sendMessage() {
     }
 }
 
-// Add message to chat function
-function addMessage(message, sender) {
+// Add message to chat function (Updated with telemetry and animation offsets)
+function addMessage(message, sender, imageUrls = []) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
     
@@ -84,15 +136,57 @@ function addMessage(message, sender) {
         messageDiv.classList.add('bot-message', 'error-message');
     }
     
+    // 1. Set up and append the textual content
     const messageContent = document.createElement('p');
-    messageContent.textContent = message;
+    if (sender === 'bot-loading') {
+        messageContent.innerHTML = `${message}<span class="typing-dots"><span></span><span></span><span></span></span>`;
+    } else {
+        messageContent.textContent = message;
+    }
     messageDiv.appendChild(messageContent);
     
+    // 2. Inject screenshots inside an orderly grid framework with stagger delays
+    if (imageUrls && imageUrls.length > 0) {
+        const imageGallery = document.createElement('div');
+        imageGallery.classList.add('screenshot-gallery', 'image-gallery');
+        
+        imageUrls.forEach((url, index) => {
+            const img = document.createElement('img');
+            img.src = url; 
+            img.alt = 'Clarilux Step Screenshot';
+            img.classList.add('chat-screenshot', 'gallery-img');
+            
+            // Apply professional micro-interaction staggered delay
+            img.style.animation = `messageSlideUp 0.25s cubic-bezier(0.05, 0.7, 0.1, 1) ${index * 0.08}s both`;
+            
+            // Trigger overlay active view state instead of breaking window tab navigation
+            img.onclick = () => openLightbox(url);
+            
+            imageGallery.appendChild(img);
+        });
+        
+        messageDiv.appendChild(imageGallery);
+    }
+
+    // 3. Attach thumbs up/down evaluation metrics bar to valid bot responses
+    if (sender === 'bot') {
+        const trackingId = `txn_${Math.random().toString(36).substring(2, 11)}`;
+        const feedbackBar = document.createElement('div');
+        feedbackBar.className = 'feedback-bar';
+        feedbackBar.innerHTML = `
+            <button class="feedback-action" onclick="submitTelemetry('${trackingId}', 'up', this)">👍</button>
+            <button class="feedback-action" onclick="submitTelemetry('${trackingId}', 'down', this)">👎</button>
+        `;
+        messageDiv.appendChild(feedbackBar);
+    }
+    
     chatMessages.appendChild(messageDiv);
-    
-    // Scroll to bottom
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-    
+
+    // Scroll to bottom only when the user hasn't scrolled up
+    if (autoScroll) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
     return messageDiv;
 }
 
@@ -111,18 +205,15 @@ async function resetChat() {
         });
         
         if (response.ok) {
-            // Clear messages
             chatMessages.innerHTML = '';
             
-            // Add welcome message
             const welcomeDiv = document.createElement('div');
             welcomeDiv.classList.add('message', 'bot-message');
             const welcomeContent = document.createElement('p');
-            welcomeContent.textContent = "Hello! I'm Gemini Chatbot. How can I help you today?";
+            welcomeContent.textContent = "Hello! I'm Clarilux Chatbox. How can I help you today?";
             welcomeDiv.appendChild(welcomeContent);
             chatMessages.appendChild(welcomeDiv);
             
-            // Clear input
             userInput.value = '';
             userInput.focus();
         } else {
@@ -132,6 +223,36 @@ async function resetChat() {
         alert(`Error resetting chat: ${error.message}`);
         console.error('Error:', error);
     }
+}
+
+/* Lightbox Modal Helper Functions */
+function openLightbox(sourceUrl) {
+    if (lightbox && lightboxImg) {
+        lightboxImg.src = sourceUrl;
+        // Dynamically name the alt text so it matches the specific asset being loaded
+        lightboxImg.alt = "Clarilux Screenshot Preview - " + sourceUrl.split('/').pop();
+        lightbox.classList.add('active');
+    }
+}
+
+function closeLightbox() {
+    if (lightbox) {
+        lightbox.classList.remove('active');
+    }
+}
+
+/* Telemetry Interaction Logging */
+function submitTelemetry(msgId, ratingType, element) {
+    const parent = element.parentElement;
+    const buttons = parent.querySelectorAll('.feedback-action');
+    
+    // Clear out active toggle classes from alternative button paths
+    buttons.forEach(btn => btn.className = 'feedback-action');
+
+    // Target active styling hooks
+    element.classList.add(ratingType === 'up' ? 'up-voted' : 'down-voted');
+    
+    console.log(`[Metrics Logging] Response ID: ${msgId} | Registered Action: ${ratingType.toUpperCase()}`);
 }
 
 // Set initial focus

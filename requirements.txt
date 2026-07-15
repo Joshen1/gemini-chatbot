@@ -1,4 +1,9 @@
-google-genai
+groq
 python-dotenv
 fastapi
 uvicorn[standard]
+langchain
+langchain-chroma
+langchain-text-splitters
+langchain-core
+chromadb

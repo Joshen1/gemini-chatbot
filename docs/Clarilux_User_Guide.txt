@@ -1,105 +1,586 @@
-Clarilux User Guide – Oral Board Exam Simulation
-Phase 1: Account Creation and Onboarding
-Step 1: Access the Platform
-Open your preferred web browser and navigate to the application by typing
-dev.clarilux.ai into the address bar. Press Enter to reach the landing page.
+Clarilux Candidate Guide
+Welcome to Clarilux, an advanced oral board simulation platform designed to evaluate and elevate clinical competence. Clarilux provides a realistic, high-fidelity environment that mirrors professional medical board examinations, allowing candidates to demonstrate their clinical reasoning, decision-making, and procedural knowledge through structured digital simulations.
+Whether you are navigating a complex patient case or completing a timed evaluation, this application serves as your secure, intuitive testing gateway. This comprehensive guide will walk you through every phase of the platform workflow, from initial registration to the final submission of your simulation performance.
 
-Step 2: Initiate Sign-Up
-• As a new user, click the “Sign Up” button located at the top-right corner of the
-page.
-• If you are an existing user, please proceed to Log In. If you have forgotten your
-password, click the “Forgot Password” link to reset it. Enter your email address
-and submit the request. An email will be sent to you with instructions to create a
-new password. Once your password has been successfully reset, proceed to log in
-using your email address and new password.
+Getting Started: Account Registration
+1. Navigate to the Platform 
+Open your preferred web browser and enter the application URL: clarilux.ai. This will take you directly to the platform's landing page.
+[image:Sub_Step_1.png]
+2. Initiate Sign-Up 
+Locate and click the Sign-Up button in the top right corner of the landing page. You will be automatically redirected to the Candidate Sign-Up page.
+[image:Sub_Step_2.png]
+3. Choose a Registration Method 
+Select the sign-up option that best suits your needs:
+	•	Sign up with Google
+	•	Sign up with Microsoft
+	•	Continue with Email
 
-Step 3: Choose Sign-Up Method
-• You will be presented with options to sign up as a candidate, examiner, or
-institution which would be candidate by default.
-• Choose your preferred sign-up method: Google, Microsoft, or Email.
+If you choose to continue with email, you will need to provide your personal details. 
+	•	Fill in your First Name, Last Name, Email Address, Password, and Confirm Password.
+	•	 Accept Terms and Continue 
+Check the required box to agree to the Terms of Use and Privacy Policy. Once checked, click the Continue button to proceed with creating your account.
+	•	Verify Your Account  
+You will be redirected to a confirmation page instructing you to check your email. Navigate to your email inbox, locate the verification message, and follow the included instructions to activate your account.
+Account Verification & Initial Setup 
+[image:Sub_Step_3.png]
 
-Step 4: Fill Out Account Details
-• Complete the required fields, including your first name, last name, email address,
-password, and confirm password.
-• Check the box to agree to the Terms of Use, then click Create Account.
+1. Verify Your Email 
+Locate the verification email in your inbox and click the Verify Email within the message body. You will be directed to a confirmation page displaying an "account activated successfully" message. Click the Go to sign in button to proceed 
+2. Sign In to Your Account 
+On the login page, you will be greeted with a "Welcome back" message. Select the same method you used during registration (Google, Microsoft, or Email) to access your account.
+3. Complete Your Clinical Profile (First-Time Login Only) 
+Upon your first successful login, you will be prompted to provide information about your current clinical environment. This step ensures that all practice cases follow relevant real board exam standards.
+	•	Select your Specialty from the dropdown menu (e.g., Anesthesiology).
+	•	Select your current Role (e.g., Resident, Fellow, Physician, or preparing independently).
+	•	Click Continue.
 
-Step 5: Verify Your Email
-• You will be redirected to a page confirming your account has been created and
-prompting you to check your email.
-• Log into your personal email account, locate the verification email, and click Verify
-Email.
+4. Set Your Exam Details 
+On the subsequent page, you will provide specific details regarding your certification timeline:
+	•	Indicate whether you have taken the exam before.
+	•	Input your Target Certification Date using the provided calendar tool.
+	•	Click Submit to finalize your profile.
 
-Step 6: Sign In
-• After verification, you will be redirected to a page stating "Account has been
-activated successfully" then click Sign In.
-• Enter the email address and password you just created to log in.
+5. Access Your Candidate Dashboard 
+You will be directed to a confirmation screen stating that you are "all set" and your exam preparation workspace is ready. Click Start preparing to be automatically redirected to your primary workspace.
 
-Step 7: Complete Your Profile
-• You will be prompted to provide more details about your role (e.g., Resident, Fellow,
-Physician)
 
-Step 8: Set Exam Timeline
-• When asked "Have you taken this exam before?", select Yes or No.
-• Input your anticipated exam date and click Submit.
 
-Phase 2: Subscription and Starting the Session
-Step 9: Navigate to Dashboard & Subscribe
-• Click start preparing. You would be redirected to your dashboard
-• To access the oral board sessions, you need an active monthly subscription
-• Click on your profile at the top right corner, then select Billing and Subscription
 
-Step 10: Plan Purchase
-• Click “Select Plan” and select the Premium Plan.
-• You will be redirected to a payment page.
-• Enter these test card details
-Card no: 4242 4242 4242 4242
-MM/YY: 12/28
-CVC: 234
-then click Subscribe.
-• Once active, you will receive an email from Clarilux.
+Dashboard
+Your Candidate Dashboard is the central command center for your exam preparation. From here, you can track your progress, resume ongoing sessions, and seamlessly access all platform features.
+Main Dashboard Features
+	•	Performance Overview: View your overall "Exam Readiness" to monitor your progression from building foundational knowledge to becoming board-ready.
+	•	Weekly Study Goal: Track your progress against the weekly study hours you have set for yourself to ensure you stay on pace.
+	•	Daily Streak: Keep your momentum going by monitoring how many consecutive days you have actively engaged with your preparation.
+	•	Jump Back In: Quickly resume any courses or oral board sessions that you have started but have not yet completed.
+	•	Past Cases: Review a comprehensive list of your completed and graded cases to reflect on past performance.
+	•	Next Recommendations: Access a curated list of suggested assessments and default courses (e.g., Orthopedics, Pharmacology) to guide your next study session.
 
-Step 11: Access Oral Board Sessions
-• On the left-side menu (which includes Dashboard, Oral Board, Question Bank,
-Marketplace, and Analytics), click on Oral Board.
-• Choose a subject from the available options. E.g, Endocrine.
+Top Navigation & Account Settings
+	•	Profile Menu: Click on your initials located in the top right corner of the application. This opens a dropdown menu where you can:
+	•	Access and edit your Profile.
+	•	Manage your Billing and Subscription.
+	•	Access Help and Support.
+	•	Sign Out of the application.
+	•	Institution Switcher: Located at the top right, just beside the notification bell (displaying "Public Clarilux" by default). If you are affiliated with multiple institutions, use this dropdown to seamlessly switch between their respective workspaces without needing to log out.
+Left Sidebar Navigation 
+Use the persistent sidebar menu on the left side of your screen to quickly jump between different areas of the application:
+	•	Dashboard: Return to your main overview page at any time.
+	•	Oral Board: Access your oral board simulation cases and testing environments.
+	•	Question Bank: Navigate to the test bank to practice specific questions and topics.
+	•	Marketplace: Find examiners, track and book sessions, and manage payments.
+Analytics: Dive deeper into your performance metrics, strengths, and areas for improvement.
+[image:Sub_Step_4.png]
 
-Step 12: Review Session Summary
-• The screen will display a summary of the session, indicating it includes 2 cases, a
-10-minute study period before each case, 35 minutes of case time, and 2 grab bags.
-• Click Begin Session.
 
-Step 13: Configure Session Experience
-• While the first case is preparing, choose your experience: Avatar, Voice, or Text.
-• Select your experience method and click Continue.
 
-Step 14: Study Period & Session Start
-• The case scenario will be displayed. You have a 10-minute review time to read the
-question, draft your answers, and perform any necessary calculations.
-• You can either wait for the 10 minutes to elapse (the session will start
-automatically), or you can click Begin Early to jump straight into the active session.
 
-Step 15: The First Case (Long Form or Short Form)
 
-• The first session begins and the will last for exactly 35 minutes. This first case will
-either be a long-form or short-form scenario.
-• Once the 35 minutes elapses, you will be presented with a choice:
-o Click Continue Later to pause the exam and immediately view your score for
-this first case.
-o Keep Going: Proceed directly to the second case without viewing your score
-yet.
 
-Step 16: Completing the Exam & Final Score
-• If you choose to proceed to the next case, you will begin the second 35-minute
-case.
-• At the end of the full 70-minute exam time (35 minutes for the first case + 35
-minutes for the second case), the session will conclude entirely.
-• You will then be presented with your comprehensive score for both the long-form
-and short-form cases.
-• You can expand or collapse each session score accordingly.
-• You can also view transcript of the entire session
+My Programs
 
-Step 17: What’s Next
-After viewing your score and transcript, you can choose to either return to the dashboard or
-start a new simulation by clicking “Go to Dashboard” or “New Exam” accordingly.
-• Go to Dashboard: Takes you back to the dashboard overview.
-• New Exam: Takes you to the interface where you can select a topic and begin a new
+My Programs feature is exclusive to candidates affiliated with a specific institution. If you are using a standard "Public Clarilux” account, this tab will not be visible on your sidebar.
+For institutional users, this tab will display the specific programs your institution has added you to. If you are associated with an institution but have not yet been assigned to any program, the page will simply display a prompt stating, "no programs assigned yet."
+1. Navigate to My Programs: From the persistent sidebar menu on the left side of your screen, click on My Programs to access your institutionally enrolled programs.
+2. Access Program Details: Once on the My Programs page, click the View program button next to your selected program to see its full details.
+3. Review the Program Overview: This section provides the foundational details of your selected program. Here you will find the specific Specialty, the program Training Level, and a comprehensive Description of the curriculum.
+4. Track Your Program Summary: Monitor your overall progress through high-level metrics. This area displays your Average score, a count of your scheduled Upcoming sessions, and the total number of your Completed sessions.
+5. Analyze Your Performance Summary: Dive into your personal analytics to better understand your clinical progression. This section specifically highlights your demonstrated Strengths and identifies key Areas for improvement to help guide your future study sessions.
+
+
+
+
+
+Oral Board
+The Oral Board is a high-fidelity simulation environment designed to bridge the gap between textbook knowledge and the high-pressure environment of board examinations. By simulating the structure of a real examination, the Oral Board helps you refine your clinical reasoning, verbalize complex decision-making processes, and manage the rapid-fire nature of board-style questioning.
+Key Features and TopicsThe platform covers a comprehensive range of clinical domains to ensure you are prepared for any scenario. Some topics currently available include:
+	•	Cardiovascular & Neuro: High-stakes management and physiology.
+	•	Obstetrics: Specialized care and maternal-fetal considerations.
+	•	Pain Management & Pharmacology: Deep dives into drug interactions and therapeutic pathways.
+
+How To Start Your First Session Navigating to your simulation is straightforward. Follow these steps to begin:
+	•	Log In: Access your account via the secure login page.
+	•	Access Oral Board Sessions On the left-side menu (which includes Dashboard, Oral Board, Question Bank, Marketplace, and Analytics), click on Oral Board.
+	•	Choose a subject from the available options. E.g, Endocrine.
+
+Review Session Summary
+	•	The screen will display a summary of the session, indicating it includes 2 cases, a 10-minute case study review period before each case, and 35 minutes of case time (comprising 30 minutes of focused questioning and a 5-minute grab-bag session at the end).
+	•	Click Begin Session.
+Configure Session Experience
+	•	While the first case is preparing, choose your preferred interaction method: Avatar, Voice, or Text.
+	•	Select your preferred option and click Continue.
+Study Period & Session Start
+	•	The case scenario will be displayed. You have a 10-minute review time to read the question, draft your answers, and perform any necessary calculations.
+	•	You can either wait for the 10 minutes to elapse (the session will start automatically), or you can click Begin Early to jump straight into the active session.
+The First Case (Long Form or Short Form)
+	•	The active oral board session begins and will last for exactly 35 minutes. This first case will either be a long-form or short-form scenario.
+	•	Once the 35 minutes conclude, you will be presented with a choice:
+	•	Click Continue Later to pause the exam and immediately view your score for this first case.
+	•	Keep Going: Proceed directly to the second case without viewing your score yet.
+Completing the Exam & Final Score
+	•	If you choose to continue, you will begin the second 35-minute case.
+	•	At the end of the full 70-minute exam time (35 minutes for the first case + 35 minutes for the second case), the session will conclude entirely.
+	•	You will then be presented with your comprehensive score for both the long-form and short-form cases.
+[image:Sub_Step_6.png]
+
+Study Tips for Success
+	•	Simulate the Environment: Try to find a quiet space and respond out loud to mimic the actual board experience.
+	•	Focus on Diversity: While it is tempting to stick to comfortable topics, ensure you rotate through categories like Pharmacology and Pain Management e.tc. to find and address any knowledge gaps.
+	•	Review Feedback: After each session, analyze the evaluation to understand how to better structure your clinical justifications.
+
+
+
+
+
+
+
+Question Bank
+The Question Bank is a dedicated practice hub. It allows you to sharpen your knowledge through focused, multiple-choice questions organized by specialized medical and surgical topics.
+
+Topic Selection
+Candidates can choose from a wide range of available categories to target their study sessions. Available topics include, but are not limited to:
+	•	Cardiovascular 
+	•	Pulmonary
+	•	Orthopedics
+	•	Trauma
+	•	Hematology 
+	•	Endocrine
+	•	Urology 
+	•	ENT (Ear, Nose, and Throat)
+	•	Pain Management 
+Practice Session Workflow
+To begin practicing, simply select your desired topic and click Start Practice. The system will guide you through an interactive learning loop:
+	•	Answer & Instant Feedback: Select your answer for the question and click submit. The platform immediately validates your choice with clear visual indicators:
+	•	If your answer is correct: The option is highlighted in a light green color and marked with a checkmark (✓).
+	•	If your answer is incorrect: The option you selected is highlighted in a light red color and marked with an (X) sign
+	•	Comprehensive Review Material: Right below the visual feedback, the system instantly displays:
+	•	The correct answer
+	•	Detailed Explanation: A comprehensive breakdown explaining the underlying medical/surgical concept.
+	•	Further Readings: A curated list of reference materials and recommended readings to help widen your knowledge and address any gaps.
+	•	Bookmarking: If you encounter a challenging or interesting question that you wish to review later, you can click the Bookmark icon to save it to your personal study list.
+	•	Continuous Learning: You can answer as many questions as you like in a single session, moving sequentially from one question to the next.
+	•	Ending a Session: There is no fixed time limit or forced ending. You can click End Practice at any point to conclude your session.
+
+
+
+MARKET PLACE
+The Marketplace is a comprehensive feature, serving as the central hub for discovering examiners, booking sessions, managing schedules, and tracking financial transactions.
+The Marketplace is split into three main modules: Find Examiner, Sessions, and Payment.
+1) Find Examiner (Public vs. Private Marketplace)
+Depending on your account type, your search scope will vary across two marketplace types:
+	•	Public Marketplace: Visible to all registered candidates, allowing you to browse and book any examiner publicly available on the Clarilux platform.
+	•	Private Marketplace: If you are associated with a specific institution, you will have access to a private marketplace. This space restricts your view exclusively to examiners who are officially affiliated with your institution.
+Searching and Filtering 
+To streamline your search and find the best match for your study needs, you can narrow down the list of examiners using the following filters:
+	•	Topic: Filter by specific medical/surgical topic (e.g., Trauma, Cardiovascular).
+	•	Session Tye: 
+	•	Availability: Find examiners based on your preferred time slots.
+	•	Price: Filter according to your budget or preferred session rates.
+	•	Ratings: Source top-rated examiners based on feedback from other candidates.
+Reviewing Examiner Profiles & Booking 
+Once you select an examiner, you can view their comprehensive profile to make an informed decision. Profiles include:
+	•	About Section & Professional Experience: A summary of their background, credentials, and teaching history.
+	•	Session Pricing: Explicit costs associated with booking their time.
+	•	Cancellation Policy: The rules regarding rescheduling or canceling a booked session.
+From here, you can directly select an available time slot, book your session, and proceed to payment.
+
+2) Sessions
+Once a session is successfully booked and paid for, it is automatically tracked under the Sessions tab. This area keeps you organized via two main logs:
+	•	Upcoming Sessions: A dynamic list displaying all your future, confirmed sessions. You can quickly navigate here to see dates, times, and examiner details.
+	•	Session History: A complete archive of all past sessions you have attended or completed on the platform.
+[image:Sub_Step_5.png]
+3) Payment
+The Payment tab serves as your personal financial dashboard within Clarilux. It allows you to monitor and manage all financial data associated with your bookings, offering the following capabilities:
+	•	Financial Summary: View your cumulative total expenditure on the platform, as well as an aggregated overview of any refunded amounts.
+	•	Status Tracking: Easily monitor the real-time status of your payments across three categories:
+	•	Total Payment Made: Completed transactions for confirmed sessions.
+	•	Refunds: Fees returned to you due to cancellations or updates adhering to the examiner's policy.
+	•	Download Receipts: Access and download official payment receipts for every single session transaction for your personal records or institutional reimbursement.
+	•	Financial History: View a quick overview of payment statuses which can be filtered by paid, refunded, failed, disputed and pending and for any transaction listed in your logs, you can directly download an official payment receipt for your personal records
+
+
+
+ANALYTICS
+The Analytics feature is a powerful data dashboard. It tracks your overall learning journey, monitors your preparation consistency, and delivers targeted insights to help you identify specific medical or surgical topics that require improvement.
+1. Analytics Overview
+On the Analytics page, you will find a high-level summary of your cumulative progress across the platform which can be filtered by time frame:
+	•	Average Score: Your mean score calculated across all completed practice exam simulations.
+	•	Simulations Completed: A total count of the full-length practice exam simulations you have successfully finished across all topics.
+	•	Total Study Time: A cumulative tracker showing the total hours and minutes you have spent actively studying and practicing on the platform.
+2. Overall Performance Trend: 
+A visual progression chart showing whether your average scores and accuracy are improving, stabilizing, or dropping over time which can be filtered by time frame
+3.Performance by Topic
+To give you a granular look at your knowledge base, the dashboard breaks down your data into individual subject areas (e.g., Cardiovascular, Trauma, Pulmonary).
+
+
+Profile
+1. Access Your Profile Locate and click your initials in the top right corner of the applicaton. From the dropdown menu that appears, select My profile.
+2. Update Profile Information Within the main profile section, you can easily view and edit your profile information to keep them up to date.
+3. Set Your Study Preferences Customize the platform to fit your learning schedule:
+	•	Weekly Study Goals: Enter the specific number of hours you want to commit to studying each week.
+	•	Daily Reminders: Choose a preferred time to receive automated study nudges.
+	•	Once you have configured your preferences, click Save Weekly Goals to apply the changes.
+4. Manage Security Settings Navigate to the security tab within your profile to handle your account credentials. Here, you can safely change or update your password as needed.
+
+
+Billing & Sunscription
+From the application, click your initials in the top right corner of the screen. Select Billing and Subscription from the dropdown menu.
+If you are a new user, click Select plan to view the available options.
+	•	Browse the available tiers: Basic Plan, Pro Plan, and Premium Plan.
+	•	Review the features and pricing, then select the plan that best suits your preparation needs.
+
+After selecting a plan, you will be securely redirected to Stripe to process your payment.
+	•	Input your credit or debit card details.
+	•	You have the option to securely save your payment information for future transactions.
+	•	Click Subscribe. Your new subscription will become active immediately upon successful payment.
+
+If you are an active subscriber, navigating to the Billing and Subscription page will display your Current Plan. From here, you have the flexibility to:
+	•	Change Plan: Upgrade or downgrade your current subscription tier.
+	•	Cancel Subscription: Terminate your active subscription if you no longer need it.
+
+To update your personal billing details:
+	•	Click the Update payment method button on the Billing and Subscription page.
+	•	You will be securely redirected to the Stripe billing portal, where you can manage all your payment preferences.
+From this portal, you can perform the following actions:
+	•	Add a New Payment Method: To use a different card, click Add payment method. You will be prompted to input the Card Number, Expiry Date, Security Code, Country, Phone Number, and Full Name. After filling in the necessary information, click Add to save the new card to your profile.
+	•	Update Billing Information: If you need to change your personal details, select the option to update your information. Fill out the provided form with your Name, Email Address, Billing Address, Country, and Phone Number. Once complete, click Save to lock in your new billing information.
+	•	View Invoice History: You can also easily access and review the history of your past invoices directly from this portal.
+
+
+
+
+
+
+Help & support
+The Help and Support page is your dedicated channel for submitting feedback, reporting technical issues, or requesting assistance with the platform.
+1. Accessing Support
+	•	Locate and click your Initials in the top right corner of the dashboard.
+	•	Select Help and Support from the dropdown menu to open the inquiry form.
+
+2. Submitting an Enquiry
+To ensure your request is addressed efficiently, complete the required fields in the support form:
+	•	Contact Information: Your name and email address will be automatically populated.
+	•	Subject: Enter a clear, concise subject line regarding your concern or feedback.
+	•	Message: Provide a detailed description of the issue you are experiencing, the feedback you wish to share, or the specific assistance you require.
+	•	Attachments (Optional): You may upload screenshots to provide additional context and help our team better understand or resolve your issue.
+
+3. Sending your Request
+	•	Once all details are complete, click Send Message to submit your request to our support team.
+
+
+
+
+
+
+
+Institutional Platform Implementation & User Guide
+Welcome to the Clarilux institutional workspace. This manual is designed to help you efficiently navigate, configure, and manage your institution’s training operations.
+From the initial setup of your workspace and the branding of your interface to the strategic management of members, resources, and examination sessions, this guide provides the end-to-end instructions you need to optimize your workflow. Whether you are onboarding new candidates or conducting performance audits, the following documentation will serve as your primary reference for maximizing the platform's capabilities.
+
+Getting Started: Institution Account Registration and Workspace Setup
+This section provides the end-to-end instructions for establishing your institution’s presence on the Clarilux platform. By following these steps, you will create your organizational account, secure your workspace, and gain administrative access to your dashboard.
+1. Registration
+	•	Accessing the Platform: Navigate to the Clarilux landing page via your web browser and click Sign Up at the top right corner.
+	•	Role Selection: Choose Institution from the registration categories to proceed with organizational setup.
+	•	Creating Your Account:
+	•	Sign up with Google, Microsoft or 
+	•	Sign up with E-mail.
+[image:Instituion_Step_1.png]
+Enter your First Name, Last Name, Email Address, and Password. Review and accept the Terms of Use and Privacy Policy, then click Create Account.
+Email Verification: Locate the verification email sent to your inbox. Click the Verify Email button to activate your account. Once verified, you will see a success message; click Go to Sign In to continue.
+[image:Instituion_Step_2.png]
+2. Sign-In and Initial Security
+	•	Login: On the sign-in page, select continue with Google, Microsoft or Email, depending on which was used in signing up, enter your registered credentials, and Sign In.
+	•	MFA Configuration: You will be prompted to set up an authenticator app for enhanced security.
+	•	To postpone this, click Finish Later.
+	•	Confirm your choice by clicking Continue when prompted.
+	•	When the secondary notification detailing the benefits of MFA appears, select Set up later to proceed to the workspace setup.
+[image:Instituion_Step_3.png]
+
+
+3.Workspace Configuration
+You will be directed to the workspace initialization form:
+	•	Institution Details: Enter your official Institution Name. A unique Workspace URL will be automatically generated and verified for availability.
+	•	Program Scope: Select all applicable program types (e.g., Residency Program, Fellowship Program, or Academic Center).
+	•	User Role: Select your specific designation (e.g., Program Director, Associate Program Director, Department Chair, Education Coordinator, or Other).
+	•	Capacity Estimates: Input the approximate number of students and examiners that will be associated with your institution.
+	•	Click Continue to move to the final verification step.
+[image:Instituion_Step_4.png]
+
+4. Finalizing Profile and Authorization
+	•	Contact & Institution Details: Enter your Phone Number and the official Institution Website URL.
+	•	Description: Add a brief description of your institution.
+	•	Authorization: Check the box to confirm that you are authorized to create and manage the Clarilux workspace on behalf of your institution.
+	•	Finalization: Click Create Account to complete the configuration.
+[image:Instituion_Step_5.png]
+5. Accessing Your Dashboard
+	•	Upon finalization, you will be automatically redirected to your Clarilux Institution Dashboard.
+	•	As the creator of the workspace, you are automatically assigned the Admin role, granting you full management privileges for your institution.
+
+
+
+
+
+
+
+Dashboard
+The Clarilux Institution Dashboard is your centralized operations hub. Upon your initial login, you will notice a notification indicating that your institution is pending verification, which typically takes up to 48 hours. Please note that session functionality will automatically unlock once your workspace has been verified.
+Setup Checklist
+To streamline your onboarding, the dashboard provides a Setup Checklist of tasks required to fully configure your workspace. As you complete each action, it will be automatically checked off:
+	•	Personalize your Workspace: Shortcut to branding.
+	•	Set up Institution Identity: Finalize your profile details.
+	•	Create Your First Program: Initialize your first academic or training program.
+	•	Invite Members: Begin onboarding your examiners and candidates.
+	•	Set up Billing: Configure your subscription and payment preferences.
+Institutional Overview & Performance
+The dashboard provides high-level metrics to help you monitor your institution's health at a glance:
+	•	Overview Stats: View your current number of Active Programs, Total Candidates, Total Examiners, and Completed Sessions.
+	•	Performance Summary: Analyze key educational outcomes, including the Average Candidate Score, Total Evaluations Completed, and a list of Lowest Performing Programs for targeted intervention.
+	•	Attention Needed: A dedicated section highlighting any critical issues or pending actions requiring immediate focus.
+	•	Recent Activity: A feed displaying the latest actions and updates occurring within your workspace.
+Quick Actions
+For maximum efficiency, utilize the Quick Actions menu to perform essential tasks directly from the dashboard:
+	•	Create a New Program
+	•	Invite a Candidate
+	•	Invite an Examiner
+	•	View Sessions
+[image:Instituion_Step_6.png]
+
+
+
+
+Programs
+The Programs tab, accessible via the main sidebar, allows you to organize and manage your institution’s various training initiatives, such as residencies, fellowships, or academic courses.
+1. Creating a New Program
+	•	Navigate to Programs in the left-hand sidebar.
+	•	Click the Create Program button located on the screen.
+	•	Fill in the required details to initialize your program:
+	•	Program Name: The official title of the program.
+	•	Specialty: The clinical or academic focus area.
+	•	Training Level: The stage or tier (e.g., PGY-1, Senior Fellow).
+	•	Start Date & End Date: The duration of the program.
+	•	Description: A brief summary of the program’s objectives.
+	•	Click Create Program to finalize and save.
+
+2. Managing Your Programs
+Once created, your programs are managed within the Programs page:
+	•	Active Programs: All currently running programs are displayed here for easy access and management.
+	•	Archived Programs: You can view programs that are no longer active by navigating to the archived section. This allows you to retain historical data and records for programs that have concluded
+[image:Instituion_Step_7.png]
+
+
+
+
+
+
+Sessions
+The Sessions tab is your comprehensive portal for overseeing all educational interactions within your institution. This area is divided into two primary views: Upcoming Sessions and Session History.
+1. Upcoming Sessions
+This view allows you to manage and monitor all activities to ensure your institution’s training calendar is on track.
+	•	Search and Filter Capabilities: To help you quickly locate specific sessions, you can use the following tools:
+	•	Search: Find sessions by Name, or Email Address.
+	•	Session Type: Filter sessions based on format, including but not limited to:
+	•	Rapid Fire Question & Answer
+	•	Focused Topic Review
+	•	Case-Based Discussion
+	•	Custom Session
+	•	Formal Oral Exam
+	•	Status: Refine your view by current session status: Scheduled, Live, Pending Confirmation, or Rescheduled.
+	•	Program: Filter by the specific programs active within your institution.
+
+2. Session History
+The Session History tab provides an archive of all past sessions that have concluded within your institution.
+	•	Reviewing Past Activity: This section allows you to maintain institutional records and review outcomes for completed training.
+	•	Search and Filter: You have access to the same robust filtering options available in the "Upcoming Sessions" view, allowing you to search by Name, Email, Session Type, Status, and Program.
+
+
+
+
+
+
+Members: Examiners and Candidates
+The Members tab allows you to manage all personnel associated with your institution. From here, you can invite new users, track invitation statuses, and manage access for both Examiners and Candidates.
+1. Navigating Member Lists
+	•	In the left-hand navigation sidebar, click on Members.
+	•	Select the relevant category from the dropdown menu: Examiners or Candidates.
+
+2. Inviting New Members
+	•	You have two primary methods to add members to your institution:
+	•	Single Invitation: Click the Invite button located at the top right corner of the page.
+	•	For Examiners: Enter the email address and select the specific Program you wish to invite them into. The role is set automatically. Click Send Invite.
+	•	For Candidates: Enter the email address, select the assigned Program, and choose the appropriate Training Level. The role is set automatically. Click Send Invite.
+	•	Bulk Invitation: To onboard multiple users at once, click the Bulk Invite option:
+	•	Input Data: Paste a list of email addresses or upload a CSV/Excel file.
+	•	Custom Message (Optional): Include a personalized invitation message.
+	•	Send: Click Send Invites to dispatch the invitations to your list.
+3. Members Overview and Status Tracking
+Each member category page provides a dashboard view of your user base. You can filter and view users by their current status:
+	•	Active: Users who have accepted their invitations and are currently active in the workspace.
+	•	Invited: Users who have been sent an invitation but have not yet accepted (pending status).
+	•	Disabled: Users whose access to your institution’s workspace has been revoked.
+
+
+
+
+
+Resources
+The Resources tab is your central repository for creating, storing, and managing examination cases. This library allows you to build a comprehensive bank of clinical scenarios to use during assessment sessions.
+1. Adding a New Case
+To add a new case to your library, click the Add Case button located at the top right corner of the page. You have two options for creating content:
+	•	Manual Creation:
+	•	Enter the core details, including Specialty, Topic, and Case Type.
+	•	Provide the full Case Scenario and Follow-up Questions.
+	•	Upload any necessary supporting Attachments.
+	•	Click Save Resource to add the case to your institution library.
+	•	AI-Generated Creation:
+	•	Utilize the integrated AI tools to generate cases.
+	•	Select your preference for Long-form or Short-form content.
+	•	Once generated and reviewed, click Save Resource to store the case.
+
+2. Managing the Resource Library
+All saved materials are accessible in the Resource Library, where you can efficiently organize and locate your content:
+	•	Filtering: Use the filter options to narrow down your library by:
+	•	Topic: Find resources based on specific clinical topic.
+	•	Source: Filter by how the resource was created, either AI-Generated or Manually Created.
+	•	Library View: The library provides a consolidated list of all resources uploaded by the administrator, ensuring you have immediate access to your entire repository.
+
+
+
+
+Settings
+
+The Settings tab is the control center for your institution’s identity, branding, and administrative policies. Use this area to customize the platform to align with your organization’s standards.
+1. Institution Identity
+Manage the foundational details of your organization. You can view or update:
+	•	Core Information: Institution Name, assigned Role, and Program Types.
+	•	Contact Details: Contact Email, Phone Number, and official Institution Website.
+	•	Workspace Specs: Domain URL, estimated number of students and examiners, and your institution's description.
+
+2. Institution Branding
+Customize the visual experience of your workspace to reflect your organization’s identity:
+	•	Logo Management: Upload or update your institution’s logo.
+	•	Theme Customization: Adjust the Primary and Secondary colors of the application interface to match your institution’s branding.
+
+3. Training Levels
+Use this feature to organize your candidates by classifying programs according to specific levels or academic stages.
+
+4. Billing and Subscription
+Maintain oversight of your financial account:
+	•	Subscription Details: View your current subscription plan and status.
+	•	Billing History: Access a comprehensive record of your past invoices and billing transactions.
+
+
+
+5. Administration
+Policy Configuration:
+Manage operational rules, such as enabling or disabling the setting that allows candidates to be enrolled in multiple programs simultaneously.
+Audit Logs:
+The Audit Logs feature serves as the central security and monitoring hub for your workspace. It provides a comprehensive, real-time record of all actions, configurations, and user activities, ensuring transparency and accountability across your institution. 
+1. Activity Monitoring
+Use this section to review the history of your workspace:
+	•	Events Tracked: View a chronological list of all events, modifications, and administrative actions performed within the system. 
+	•	Role-Based Insights: Get a high-level view of how different roles are interacting with the workspace, allowing you to monitor how each user type utilizes the platform.
+	•	Performance Metrics: Access data on the most frequently used features and identify top actions performed by your team.
+2. Search and Filter Capabilities
+To streamline your investigations or routine checks, you can filter your activity logs using several parameters:
+	•	Search by Category: Narrow your view by Programs, Sessions, or Service Summary.
+	•	User Activity: Audit specific activities by user, allowing you to see exactly what actions were initiated by particular team members.
+3. Purpose and Use
+The Audit Logs feature is essential for:
+	•	Security & Accountability: Identifying who performed specific actions and when, which is critical for maintaining data integrity and investigating unauthorized changes. 
+	•	Troubleshooting: Reconstructing the timeline of events to diagnose system issues or operational errors. 
+	•	Compliance: Providing the necessary documentation and evidence of system activity for institutional or regulatory audits.
+
+
+6.Security Settings
+Manage your account security directly from this section:
+	•	Multi-Factor Authentication (MFA): Enable or disable MFA for your account.
+	•	Password Management: Update or change your account password as needed to maintain security.
+
+
+
+
+
+
+Profile and Security Management 
+The Profile section allows you to manage your institution’s core details and maintain your account’s security settings.
+
+1. Accessing Your Profile
+	•	From the top right corner of your dashboard, click on your Initials.
+	•	Select Profile from the dropdown menu
+
+2. Managing Institution Information
+In the Profile tab, you can view and update the information provided during the setup process. You may edit the following fields to keep your institution's details current:
+	•	Institution Name: Your official organization name.
+	•	Role: Your assigned designation within the institution.
+	•	Program Types: Your active programs (e.g., Residency, Fellowship, or Academic Center).
+	•	Contact Information: Your primary contact email and phone number.
+	•	Institution Website: The public-facing website for your organization.
+	•	Domain URL: Your dedicated platform workspace URL.
+	•	Capacity Estimates: The estimated number of students and examiners associated with your institution.
+	•	Institution Description: A summary of your institution.
+To save any changes made, click the Save Settings button 
+
+3. Security Settings
+The Security tab allows you to manage authentication methods to protect your institutional workspace:
+	•	Multi-Factor Authentication (MFA): Toggle this setting to Enable or Disable your MFA. Enabling MFA is highly recommended for added account protection.
+	•	Password Management: Use the provided fields on the security page to update or change your account password.
+
+
+
+
+
+
+
+Help and Support
+The Help and Support page is your dedicated channel for submitting feedback, reporting technical issues, or requesting assistance with the platform.
+1. Accessing Support
+	•	Locate and click your Initials in the top right corner of the dashboard.
+	•	Select Help and Support from the dropdown menu to open the inquiry form.
+
+2. Submitting an Inquiry
+To ensure your request is addressed efficiently, please complete the required fields in the support form:
+	•	Contact Information: Your name and email address will be automatically populated.
+	•	Subject: Enter a clear, concise subject line regarding your concern or feedback.
+	•	Message: Provide a detailed description of the issue you are experiencing, the feedback you wish to share, or the specific assistance you require.
+	•	Attachments (Optional): You may upload screenshots to provide additional context and help our team better understand or resolve your issue.
+
+3. Sending Your Request
+	•	Once all details are complete, click Send Message to submit your request to our support team.
+
+
+
+
+
+
+
+
+
+
+
+Billing and Subscription
+The Billing section, which is accessible via Settings, allows you to manage your subscription, and view payment history.
+
+Selecting a Subscription Plan
+If your institution is new to the platform or does not have an active subscription, navigate to the billing section and click View Plans. You can compare different commitment durations to find the best fit for your institution:
+	•	Commitment Options: Choose between a Six-Month, One-Year, or Two-Year commitment plan.
+	•	Plan Tiers and Seat Capacity: The maximum number of candidate seats available depends on your selected tier:
+	•	Basic Plan: Standard features for smaller needs. Up to 30 candidate seats.
+	•	Professional Plan: Up to 65 candidate seats.
+	•	Premium Plan: Advanced tools for growing programs. Up to 100 candidate seats.
+	•	Enterprise Plan: Tailored solutions for large-scale organizations; require clicking Contact Sales to discuss custom requirements.
+
+2. Configuring Your Plan
+Once you have selected a plan:
+	•	Capacity Adjustment: Adjust the number of candidates associated with your institution. The system supports up to a maximum of 100 seats.
+	•	Price Calculation: The total price is automatically calculated based on your selected plan and the number of candidate seats.
+	•	Trial Period: Depending on the selected plan, you may be eligible for a Free Trial period.
+
+3. Finalizing Your Subscription
+	•	Review and check the box to agree to the Terms and Conditions.
+	•	Click Continue to Free Trial to activate your subscription and begin your trial period.
+
+4. Account Overview
+Once subscribed, you can return to the Billing page at any time to:
+	•	Review your Current Subscription status and plan details.
+	•	Access your Billing History for a comprehensive record of all invoices and payments.

@@ -1,144 +1,147 @@
-# Gemini Chatbot with FastAPI Web Interface
+# Clarilux Multimodal Chatbot
 
-A modern web-based chatbot powered by Google's Gemini 3 Flash Preview model, built with FastAPI and featuring a beautiful chat interface.
+A FastAPI-based chatbot that combines Groq with a retrieval-augmented generation (RAG) pipeline, embeddings, and ChromaDB to answer questions from your documents and associated screenshots.
+
+## What’s New
+
+The current version includes:
+
+- Embedding-based document retrieval with Groq embeddings
+- ChromaDB persistence for vector search in the local `chroma_db` folder
+- RAG chunking and similarity search over `.txt` and `.md` documents
+- Multimodal responses that can return related screenshots from the docs folder
+- Quota-aware fallback support for Groq model retries
+- A simple web interface with REST API endpoints
 
 ## Features
 
-- 🚀 **Web Interface**: Modern, responsive chat UI
-- ⚡ **FastAPI Backend**: High-performance REST API
-- 💬 **Real-time Chat**: Stream responses from Gemini
-- 🔄 **Session Management**: Reset chat history anytime
-- 📱 **Responsive Design**: Works on desktop and mobile devices
-- 💾 **Backward Compatible**: Can still run in CLI mode
+- 🤖 Groq-powered chat responses
+- 📚 RAG from your own documents and knowledge files
+- 🧠 Vector search using embeddings and ChromaDB
+- 🖼️ Image-aware answers when documents reference screenshots
+- ⚡ FastAPI backend with a lightweight frontend
+- 🔁 Fallback model support when Gemini quota limits are hit
 
 ## Installation
 
-1. **Clone the repository**
+1. Clone the repository
    ```bash
    cd gemini-chatbot
    ```
 
-2. **Create a virtual environment**
+2. Create and activate a virtual environment
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   source venv/bin/activate
    ```
 
-3. **Install dependencies**
+3. Install Python dependencies
    ```bash
    pip install -r requirements.txt
    ```
 
-4. **Set up environment variables**
-   Create a `.env` file in the project root:
+4. Create a `.env` file in the project root
+   ```env
+   GROQ_API_KEY=your_api_key_here
+   GROQ_MODEL=compound-beta
+   GROQ_FALLBACK_MODEL=compound-beta-mini
+   GROQ_EMBEDDING_MODEL=nomic-embed-text-v1_5
+   RAG_DOCUMENT_PATH=docs
+   RAG_TOP_K=2
+   RAG_CHUNK_SIZE=800
+   RAG_CHUNK_OVERLAP=100
+   PORT=8080
    ```
-   GEMINI_API_KEY=your_api_key_here
-   ```
-   Get your API key from [Google AI Studio](https://aistudio.google.com)
 
-5. **Add your own document**
-   Place your `.txt` or `.md` document in the project root or in `docs/`.
-   If you prefer a custom path, add this to `.env`:
-   ```
-   RAG_DOCUMENT_PATH=document.txt
-   ```
-   The chatbot will load the file and use it as context when answering questions.
+   Get your API key from [Google AI Studio](https://aistudio.google.com).
 
-## Usage
+5. Add your own documents
+   Place `.txt` or `.md` files in the project root, the `docs/` folder, or point `RAG_DOCUMENT_PATH` to another folder.
 
-### Web Interface (Default)
+## Running the App
 
-Start the FastAPI server:
+Start the server:
 ```bash
 python chatbot.py
 ```
 
-Then open your browser and navigate to:
-```
-http://localhost:8000
-```
-If you changed the `PORT` environment variable, use that port instead.
-
-### Docker
-
-Build the Docker image:
-```bash
-docker build -t gemini-chatbot .
-```
-
-Run the container:
-```bash
-docker run -d --name gemini-chatbot -p 8000:8000 \
-  -e GEMINI_API_KEY=your_api_key_here \
-  gemini-chatbot
-```
-
 Then open:
-```
-http://localhost:8000
-```
-
-If you want to mount a local `.env` file instead of passing the key directly:
-```bash
-docker run -d --name gemini-chatbot -p 8000:8000 \
-  --env-file .env \
-  gemini-chatbot
+```text
+http://localhost:8080
 ```
 
-### CLI Mode (Legacy)
+If you changed the `PORT` variable, use that port instead.
 
-Run in command-line mode:
-```bash
-python chatbot.py --cli
+## Project Structure
+
+```text
+gemini-chatbot/
+├── chatbot.py           # FastAPI app, RAG pipeline, and Gemini integration
+├── requirements.txt     # Python dependencies
+├── .env                 # Local environment variables
+├── chroma_db/           # Persisted Chroma vector database
+├── docs/                # Knowledge documents and screenshots
+├── static/              # Web UI assets
+│   ├── index.html
+│   ├── style.css
+│   └── script.js
 ```
 
 ## API Endpoints
 
-- **GET `/`** - Serves the web interface
-- **POST `/api/chat`** - Send a message and get a response
-  - Request: `{"message": "your message here"}`
-  - Response: `{"response": "chatbot response"}`
-- **POST `/api/reset`** - Reset the chat session
-  - Response: `{"status": "Chat session reset"}`
+- `GET /` — serves the web interface
+- `POST /api/chat` — sends a message and returns a chatbot response plus image URLs
+  - Request body:
+    ```json
+    {"message": "Explain the setup steps"}
+    ```
+  - Response example:
+    ```json
+    {
+      "response": "Here is the answer...",
+      "images": ["/screenshots/example.png"]
+    }
+    ```
+- `POST /api/reset` — resets the session state endpoint
 
-## Project Structure
+## Configuration Notes
 
+- `GEMINI_MODEL` controls the primary Gemini model used for generation.
+- `GEMINI_FALLBACK_MODEL` is used if the main model hits a quota or rate-limit error.
+- `RAG_TOP_K`, `RAG_CHUNK_SIZE`, and `RAG_CHUNK_OVERLAP` control retrieval quality and chunking behavior.
+- If documents contain image references such as `![alt](image.png)` or `[image: image.png]`, the app will try to resolve them from the docs or screenshot folders.
+
+## Docker
+
+Build the image:
+```bash
+docker build -t gemini-chatbot .
 ```
-gemini-chatbot/
-├── chatbot.py           # Main FastAPI application
-├── requirements.txt     # Python dependencies
-├── .env                 # Environment variables (create this)
-├── venv/               # Virtual environment
-└── static/
-    ├── index.html      # Web interface HTML
-    ├── style.css       # Styling
-    └── script.js       # Frontend JavaScript
+
+Run it:
+```bash
+docker run -d --name gemini-chatbot -p 8080:8080 \
+  -e GEMINI_API_KEY=your_api_key_here \
+  gemini-chatbot
 ```
 
-## Technologies Used
-
-- **Backend**: FastAPI, Python
-- **Frontend**: HTML5, CSS3, JavaScript
-- **AI Model**: Google Gemini 3 Flash Preview
-- **Server**: Uvicorn
+You can also mount your local `.env` file:
+```bash
+docker run -d --name gemini-chatbot -p 8080:8080 \
+  --env-file .env \
+  gemini-chatbot
+```
 
 ## Troubleshooting
 
-### API Key Error
-Make sure your `.env` file is in the project root directory with the correct API key.
+### API key error
+Make sure your `.env` file is present and contains a valid `GEMINI_API_KEY`.
 
-### Port Already in Use
-If port 8000 is already in use, you can change it by modifying the `uvicorn.run()` call in `chatbot.py`:
-```python
-uvicorn.run(app, host="0.0.0.0", port=8080)
-```
+### Quota errors
+If Gemini returns a quota or rate-limit error, the app will attempt to retry with the fallback model defined in `GEMINI_FALLBACK_MODEL`.
 
-### Dependencies Not Installing
-Try upgrading pip:
-```bash
-pip install --upgrade pip
-pip install -r requirements.txt
-```
+### Port already in use
+Change the `PORT` variable in your `.env` file.
 
 ## License
 
