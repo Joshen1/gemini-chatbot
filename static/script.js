@@ -121,7 +121,7 @@ async function sendMessage() {
     }
 }
 
-// Add message to chat function (Updated with telemetry and animation offsets)
+// Add message to chat function (Updated to parse Markdown for bot responses)
 function addMessage(message, sender, imageUrls = []) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message');
@@ -137,11 +137,19 @@ function addMessage(message, sender, imageUrls = []) {
     }
     
     // 1. Set up and append the textual content
-    const messageContent = document.createElement('p');
+    const messageContent = document.createElement('div'); // Swapped 'p' for 'div' to support complex block structures like lists/code block wrappers
+    messageContent.classList.add('message-text');
+
     if (sender === 'bot-loading') {
-        messageContent.innerHTML = `${message}<span class="typing-dots"><span></span><span></span><span></span></span>`;
+        messageContent.innerHTML = `<p>${message}<span class="typing-dots"><span></span><span></span><span></span></span></p>`;
+    } else if (sender === 'bot') {
+        // Run bot responses through the Marked library parser (enabling breaks ensures single line returns work cleanly)
+        messageContent.innerHTML = marked.parse(message, { breaks: true });
     } else {
-        messageContent.textContent = message;
+        // Keep user and error text entirely flat and secure to prevent script execution vulnerabilities
+        const plainTextPara = document.createElement('p');
+        plainTextPara.textContent = message;
+        messageContent.appendChild(plainTextPara);
     }
     messageDiv.appendChild(messageContent);
     
@@ -209,8 +217,9 @@ async function resetChat() {
             
             const welcomeDiv = document.createElement('div');
             welcomeDiv.classList.add('message', 'bot-message');
-            const welcomeContent = document.createElement('p');
-            welcomeContent.textContent = "Hello! I'm Clarilux Chatbox. How can I help you today?";
+            const welcomeContent = document.createElement('div');
+            welcomeContent.classList.add('message-text');
+            welcomeContent.innerHTML = "<p>Hello! I'm Clarilux Chatbox. How can I help you today?</p>";
             welcomeDiv.appendChild(welcomeContent);
             chatMessages.appendChild(welcomeDiv);
             

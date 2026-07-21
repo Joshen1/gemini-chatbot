@@ -11,6 +11,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import List
+from starlette.concurrency import run_in_threadpool
 
 # LangChain Imports
 import groq
@@ -35,14 +36,15 @@ if not GROQ_API_KEY:
     raise ValueError(f"Error: GROQ_API_KEY not found. Checked {dotenv_path}")
 
 # Runtime tuning for RAG responses
-RAG_TOP_K = int(os.getenv("RAG_TOP_K", "4"))
+RAG_TOP_K = int(os.getenv("RAG_TOP_K", "2"))
 RAG_CHUNK_SIZE = int(os.getenv("RAG_CHUNK_SIZE", "700"))
 RAG_CHUNK_OVERLAP = int(os.getenv("RAG_CHUNK_OVERLAP", "80"))
 MAX_PROMPT_CHARS = int(os.getenv("MAX_PROMPT_CHARS", "7000"))
 CHROMA_PERSIST_DIR = Path(__file__).resolve().parent / "chroma_db"
 GROQ_MODEL = os.getenv("GROQ_MODEL", "compound-beta")
 GROQ_FALLBACK_MODEL = os.getenv("GROQ_FALLBACK_MODEL", "compound-beta-mini")
-GROQ_EMBEDDING_MODEL = os.getenv("GROQ_EMBEDDING_MODEL", "text-embedding-3-small")
+# FIXED: Replaced invalid OpenAI model string with Groq supported Nomic model
+GROQ_EMBEDDING_MODEL = os.getenv("GROQ_EMBEDDING_MODEL", "nomic-embed-text-v1_5")
 
 os.environ["GROQ_API_KEY"] = GROQ_API_KEY
 
@@ -54,7 +56,7 @@ print("  GROQ_EMBEDDING_MODEL:", GROQ_EMBEDDING_MODEL)
 
 # Initialize Groq client and embeddings
 class GroqEmbeddings(Embeddings):
-    def __init__(self, client: groq.Groq, model: str = "text-embedding-3-small"):
+    def __init__(self, client: groq.Groq, model: str = "nomic-embed-text-v1_5"):
         self.client = client
         self.model = model
         self.dimension = 256
@@ -64,8 +66,6 @@ class GroqEmbeddings(Embeddings):
         if self.model:
             candidate_models.append(self.model)
         candidate_models.extend([
-            "text-embedding-3-small",
-            "text-embedding-3-large",
             "nomic-embed-text-v1_5",
         ])
 
@@ -75,7 +75,6 @@ class GroqEmbeddings(Embeddings):
                 response = self.client.embeddings.create(
                     input=texts,
                     model=candidate_model,
-                    encoding_format="float",
                 )
                 return [self._normalize_embedding(item.embedding) for item in response.data]
             except Exception as exc:
@@ -126,11 +125,6 @@ class GroqEmbeddings(Embeddings):
 def create_groq_client(api_key: str) -> groq.Groq:
     print(f"Initializing Groq client")
     return groq.Groq(api_key=api_key)
-
-
-def create_groq_prompt(messages: list[dict]) -> str:
-    return messages
-
 
 groq_client = create_groq_client(GROQ_API_KEY)
 embeddings = GroqEmbeddings(groq_client, model=GROQ_EMBEDDING_MODEL)
@@ -239,7 +233,16 @@ def load_and_chunk_documents(path: Path | None) -> list[Document]:
     return documents
 
 
-def initialize_vector_store(documents: list[Document]):
+def initialize_vector_store(documents: list[Document], force_rebuild: bool = False):
+    # FIXED: Re-use database directory if it already contains files to optimize restart times
+    if not force_rebuild and CHROMA_PERSIST_DIR.exists() and any(CHROMA_PERSIST_DIR.iterdir()):
+        try:
+            store = Chroma(persist_directory=str(CHROMA_PERSIST_DIR), embedding_function=embeddings)
+            print("Loaded existing ChromaDB from disk.")
+            return store
+        except Exception as exc:
+            print(f"Could not load existing database layout: {exc}. Rebuilding...")
+
     if not documents:
         return None
 
@@ -262,7 +265,7 @@ def initialize_vector_store(documents: list[Document]):
 # Initialize Vector Database (ChromaDB)
 document_source_path = resolve_rag_path()
 raw_docs = load_and_chunk_documents(document_source_path)
-vector_store = initialize_vector_store(raw_docs)
+vector_store = initialize_vector_store(raw_docs, force_rebuild=False)
 
 # FastAPI App Initialization
 app = FastAPI(title="Clarilux Multimodal Chatbot")
@@ -270,8 +273,6 @@ app = FastAPI(title="Clarilux Multimodal Chatbot")
 static_dir = Path(__file__).parent / "static"
 static_dir.mkdir(exist_ok=True)
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
-
-# Mount screenshot directory so your UI can load them natively via static URLs
 app.mount("/screenshots", StaticFiles(directory=IMAGE_ASSETS_DIR), name="screenshots")
 
 class ChatMessage(BaseModel):
@@ -279,16 +280,7 @@ class ChatMessage(BaseModel):
 
 class ChatResponse(BaseModel):
     response: str
-    images: List[str]  # Returns URLs of images matching the steps
-
-def get_image_base64_and_mime(image_path: Path) -> tuple[str, str]:
-    """Helper to convert local images to multimodal payload formats."""
-    ext = image_path.suffix.lower()
-    mime_type = "image/png" if ext == ".png" else "image/jpeg"
-    with open(image_path, "rb") as img_file:
-        encoded_string = base64.b64encode(img_file.read()).decode("utf-8")
-    return encoded_string, mime_type
-
+    images: List[str]
 
 def truncate_text(text: str, max_chars: int) -> str:
     if len(text) <= max_chars:
@@ -306,7 +298,6 @@ def build_chat_prompt(question: str, context_docs: list[Document]) -> tuple[list
         "If an associated screenshot is explicitly mentioned in the context, reference it naturally."
     )
 
-    # Track unique images to prevent duplicates while maintaining retrieval rank order
     seen_images = set()
 
     for i, doc in enumerate(context_docs[: max(1, min(RAG_TOP_K, 6))], start=1):
@@ -317,7 +308,6 @@ def build_chat_prompt(question: str, context_docs: list[Document]) -> tuple[list
         image_name = doc.metadata.get("associated_image")
         image_log_str = ""
         
-        # Pull image assets strictly mapped to high-relevance ranking contexts without bleeding duplicates
         if image_name and image_name not in seen_images:
             doc_path_str = doc.metadata.get("doc_path")
             doc_path = Path(doc_path_str) if doc_path_str else Path(doc.metadata.get("source", ""))
@@ -327,7 +317,6 @@ def build_chat_prompt(question: str, context_docs: list[Document]) -> tuple[list
                 img_url = f"/screenshots/{full_image_path.name}"
                 ui_image_urls.append(img_url)
                 seen_images.add(image_name)
-                # Attach structural tracking text tags back into context to direct LLM narrative flow
                 image_log_str = f" (Attached Screenshot: {full_image_path.name})"
 
         text_contexts.append(f"[{i}] From {source}:\n{content}{image_log_str}\n")
@@ -398,32 +387,38 @@ async def chat_endpoint(chat_msg: ChatMessage):
 
         if vector_store:
             try:
-                context_docs = vector_store.similarity_search(chat_msg.message, k=RAG_TOP_K)
+                # FIXED: Run blocking vector disk queries in an off-loop thread pool to avoid blocking the app
+                context_docs = await run_in_threadpool(
+                    vector_store.similarity_search, chat_msg.message, k=RAG_TOP_K
+                )
             except Exception as exc:
                 print(f"Vector store query failed: {exc}")
                 error_text = str(exc).lower()
                 if "collection" in error_text and "does not exist" in error_text:
                     print("Detected missing Chroma collection. Rebuilding vector store...")
-                    rebuilt_store = initialize_vector_store(raw_docs)
+                    rebuilt_store = initialize_vector_store(raw_docs, force_rebuild=True)
                     if rebuilt_store:
                         vector_store = rebuilt_store
                         try:
-                            context_docs = vector_store.similarity_search(chat_msg.message, k=RAG_TOP_K)
+                            context_docs = await run_in_threadpool(
+                                vector_store.similarity_search, chat_msg.message, k=RAG_TOP_K
+                            )
                         except Exception as exc2:
                             print(f"Vector store query failed after rebuild: {exc2}")
                             context_docs = []
                     else:
-                        print("Failed to rebuild vector store after missing collection.")
                         context_docs = []
                 else:
                     raise
 
         messages, ui_image_urls = build_chat_prompt(chat_msg.message, context_docs)
-        ai_content = invoke_llm_with_fallback(messages)
+        
+        # FIXED: Run blocking LLM HTTP requests in threadpool
+        ai_content = await run_in_threadpool(invoke_llm_with_fallback, messages)
 
         return ChatResponse(
             response=ai_content,
-            images=ui_image_urls  # Cleanly preserved in order of top RAG relevance score metrics
+            images=ui_image_urls
         )
 
     except Exception as e:
@@ -440,7 +435,8 @@ if __name__ == "__main__":
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             try:
-                sock.bind((host, port))
+                # FIXED: Checking localhost (127.0.0.1) instead of 0.0.0.0 for port tests
+                sock.bind(("127.0.0.1", port))
                 return True
             except OSError:
                 return False

@@ -516,3 +516,93 @@ button:disabled {
         object-fit: cover;
     }
 }
+
+/* ==========================================================================
+   Rich Text Markdown Support Updates
+   ========================================================================= */
+
+/* Typography Spacing */
+.message-text p {
+    margin: 0 0 10px 0;
+    white-space: pre-wrap;
+    line-height: 1.55;
+}
+
+.message-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Markdown Headers formatting */
+.message-text h1,
+.message-text h2,
+.message-text h3,
+.message-text h4 {
+    margin: 16px 0 8px 0;
+    color: var(--text-main);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.message-text h1 { font-size: 1.25rem; }
+.message-text h2 { font-size: 1.15rem; }
+.message-text h3 { font-size: 1.05rem; }
+
+/* Structural Lists rules */
+.message-text ul,
+.message-text ol {
+    margin: 8px 0 12px 0;
+    padding-left: 22px;
+}
+
+.message-text li {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.message-text li::marker {
+    color: var(--accent-2);
+}
+
+/* Inline Code styling */
+.message-text :not(pre) > code {
+    font-family: 'Fira Code', Consolas, Monaco, monospace;
+    font-size: 0.88rem;
+    padding: 3px 6px;
+    border-radius: 6px;
+    background-color: rgba(148, 163, 184, 0.15);
+    border: 1px solid var(--border);
+    color: var(--accent-2);
+}
+
+/* Code block engine panels */
+.message-text pre {
+    margin: 12px 0;
+    padding: 14px;
+    border-radius: 12px;
+    background: rgba(15, 23, 42, 0.45);
+    border: 1px solid var(--border);
+    overflow-x: auto;
+}
+
+/* light theme contrast rules override */
+body.theme-light .message-text pre {
+    background: #f8fafc;
+}
+
+.message-text pre code {
+    font-family: 'Fira Code', Consolas, Monaco, monospace;
+    font-size: 0.9rem;
+    color: var(--text-main);
+    background: transparent;
+    padding: 0;
+    border: none;
+}
+
+/* Blockquotes adjustments */
+.message-text blockquote {
+    margin: 12px 0;
+    padding: 4px 0 4px 14px;
+    border-left: 3px solid var(--accent);
+    color: var(--text-muted);
+    font-style: italic;
+}
