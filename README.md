@@ -26,7 +26,7 @@ The current version includes:
 
 1. Clone the repository
    ```bash
-   cd gemini-chatbot
+   cd chatbot_joshen
    ```
 
 2. Create and activate a virtual environment
@@ -115,22 +115,59 @@ gemini-chatbot/
 
 Build the image:
 ```bash
-docker build -t gemini-chatbot .
+docker build -t chatbot_joshen .
 ```
 
 Run it:
 ```bash
-docker run -d --name gemini-chatbot -p 8080:8080 \
+docker run -d --name chatbot_joshen -p 8000:8000 \
   -e GEMINI_API_KEY=your_api_key_here \
-  gemini-chatbot
+  chatbot_joshen
 ```
 
 You can also mount your local `.env` file:
 ```bash
-docker run -d --name gemini-chatbot -p 8080:8080 \
+docker run -d --name gemini-chatbot -p 8000:8000 \
   --env-file .env \
-  gemini-chatbot
+  chatbot_joshen
 ```
+
+### CLI Mode (Legacy)
+
+Run in command-line mode:
+```bash
+python chatbot.py --cli
+```
+
+## API Endpoints
+
+- **GET `/`** - Serves the web interface
+- **POST `/api/chat`** - Send a message and get a response
+  - Request: `{"message": "your message here"}`
+  - Response: `{"response": "chatbot response"}`
+- **POST `/api/reset`** - Reset the chat session
+  - Response: `{"status": "Chat session reset"}`
+
+## Project Structure
+
+```
+gemini-chatbot/
+├── chatbot.py           # Main FastAPI application
+├── requirements.txt     # Python dependencies
+├── .env                 # Environment variables (create this)
+├── venv/               # Virtual environment
+└── static/
+    ├── index.html      # Web interface HTML
+    ├── style.css       # Styling
+    └── script.js       # Frontend JavaScript
+```
+
+## Technologies Used
+
+- **Backend**: FastAPI, Python
+- **Frontend**: HTML5, CSS3, JavaScript
+- **AI Model**: Google Gemini 3 Flash Preview
+- **Server**: Uvicorn
 
 ## Troubleshooting
 
